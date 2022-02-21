@@ -10,7 +10,7 @@ int matrix[4][4] = {
 int i=0,j=0;    
     
 void draw(int matrix [4][4], int offsetX, int offsetY) {
-	for(matrix
+	
 }
    
 	

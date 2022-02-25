@@ -12,9 +12,9 @@ int a[3][3] = {
 };
 
 //int **arena;
-int arena[10][32] = {0};
+int arena[10][32] = {0}; // X-Y fel omvänt!!
 
-const int ARENAYOFFSET = 31; // should be the same as playerPosY
+const int ARENAYOFFSET = 31;
 const int ARENAHEIGHT = 32;
 const int ARENAWIDTH = 10;
 
@@ -57,19 +57,16 @@ bool collision() {
 
 	for ( y = 0; y < 3; y++) {
 		for ( x = 0; x < 3; x++) {
+
+				if(a[y][x] != 0 &&
+					(arena[y + playerPosY-ARENAYOFFSET][x + playerPosX]) != 0) { //Sätt till två?
+					return true;
+				}	
+				
 				if((playerPosY > ((ARENAHEIGHT*3)+ARENAYOFFSET)-6))
 				{
 					return true;
 				}
-				if(arena[((playerPosX)/3)][((playerPosY-ARENAYOFFSET)/3)+1] != 0) {
-					return true;
-				}
-				/*if(arena[((playerPosX)/3)+1+y][((playerPosY-ARENAYOFFSET)/3)] != 0) {
-					return true;
-				}
-				if(arena[((playerPosX)/3)-1+y][((playerPosY-ARENAYOFFSET)/3)] != 0) {
-					return true;
-				}*/
 			}	
 		}
 	return false;

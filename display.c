@@ -211,10 +211,10 @@ void display_image(const int x, const uint8_t *data) {
     for(page = 0; page < 4; page++) {
         DISPLAY_CHANGE_TO_COMMAND_MODE;
 
-        spi_send_recv(0x22);    // Command to set the page
-        spi_send_recv(page);    // Set the current page
+        spi_send_recv(0x22);    
+        spi_send_recv(page);    
 
-        // Don't really know how these work
+       
         spi_send_recv(x & 0xF);
         spi_send_recv(0x10 | ((x >> 4) & 0xF));
 
